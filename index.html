@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Rate Limiter Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>RateLimiter</h2>
+    <button onclick="showDashboard()">Dashboard</button>
+    <button onclick="showUsers()">Users</button>
+</div>
+
+<div class="main">
+    <div id="rateLimitBanner" class="hidden"></div>
+
+    <div id="dashboard">
+        <h1>Dashboard</h1>
+        <div class="card">
+            <h3>Total Users</h3>
+            <p id="totalUsers">0</p>
+        </div>
+        <div class="card">
+            <h3>Rate Limit</h3>
+            <p>5 Requests / 60 Seconds</p>
+        </div>
+    </div>
+
+    <div id="usersPage" class="hidden">
+        <h1>Users</h1>
+        <button class="addBtn" onclick="openModal()">Add User</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="userModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Add User</h3>
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <button onclick="addUser()">Submit</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
